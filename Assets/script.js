@@ -2,8 +2,13 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$( document ).ready(function() {
+window.onload = mainFunction(); 
  
+console.log("made it through the current date population");
+
+
+ // today.setAttribute("style", )
+
   // Your code here.
 
 
@@ -26,5 +31,26 @@ $( document ).ready(function() {
   //
   // TODO: Add code to display the current date in the header of the page.
 
+
+function mainFunction() {
+  var today = document.getElementById("currentDay");
+  var whatsTodayDay = dayjs().format('dddd');
+  var whatsTodayDate = dayjs().format('MMMM DD, YYYY');
+
+  console.log(whatsTodayDay);
+  console.log(whatsTodayDate);
+  console.log(this.document);
   
-});
+  today.textContent = "Today is " + whatsTodayDay + ", " + whatsTodayDate;
+  today.setAttribute("style", "font-family: 'Satisfy', cursive; font-size: 2em");
+}
+
+/*
+function whenStyle () {
+ // var nowHour = dayjs().hour();
+//  var nowMinute = dayjs().minute();
+  var now = nowHour.dayjs().format('h:mm A');
+  var timeSlot = document.querySelectorAll.
+
+}
+*/
