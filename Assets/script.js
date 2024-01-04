@@ -38,6 +38,9 @@ function mainFunction() {
   var whatsTodayDay = dayjs().format('dddd');
   var whatsTodayDate = dayjs().format('MMMM DD, YYYY');
   // var myEventInput = document.getElementById('myInput');
+
+  today.textContent = "Today is " + whatsTodayDay + ", " + whatsTodayDate;
+  today.setAttribute("style", "font-family: 'Satisfy', cursive; font-size: 2em");
   
 
   console.log(whatsTodayDay);
@@ -74,8 +77,7 @@ if whatTimeIsIt.isBefore(timeBlock); {
 
   
   
-  today.textContent = "Today is " + whatsTodayDay + ", " + whatsTodayDate;
-  today.setAttribute("style", "font-family: 'Satisfy', cursive; font-size: 2em");
+
 }
 
 $(".saveButton").on("click", function() {
