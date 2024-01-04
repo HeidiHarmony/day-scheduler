@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-window.onload = mainFunction(); 
+window.onload = mainFunction; 
  
 console.log("made it through the current date population");
 
@@ -33,17 +33,70 @@ console.log("made it through the current date population");
 
 
 function mainFunction() {
+
   var today = document.getElementById("currentDay");
   var whatsTodayDay = dayjs().format('dddd');
   var whatsTodayDate = dayjs().format('MMMM DD, YYYY');
+  // var myEventInput = document.getElementById('myInput');
+  
 
   console.log(whatsTodayDay);
   console.log(whatsTodayDate);
   console.log(this.document);
+
+ // const addEventHere = document.querySelectorAll(".description");
+  const whatTimeIsIt = dayjs().format('h:mm A');
+  const timeBlock = querySelectorAll("div.time-block");
+  const timeBlockValues = [];
+
+  timeBlock.forEach(timeBlock => {
+    timeBlockValues.push(timeBlock.textContent);
+  });
+
+  console.log(timeBlockValues);
+  console.log(whatTimeIsIt);
+
+
+  // figure out how to do a math floor or some other rounding thing so that present goes from x:00 to x:59
+
+ 
+  /* RETURN TO THIS!!!
+
+if whatTimeIsIt.isBefore(timeBlock); {
+  $("div.timeblock").addClass("future");
+ } else-if { whatTimeIsIt.isAfter(timeBlock);
+    $("div.timeblock").addClass("past"); 
+   }  else {
+      $("div.timeblock").addClass("past"); 
+    }
+  */
+
+
+  
   
   today.textContent = "Today is " + whatsTodayDay + ", " + whatsTodayDate;
   today.setAttribute("style", "font-family: 'Satisfy', cursive; font-size: 2em");
 }
+
+$(".saveButton").on("click", function() {
+  // Get the event description from the textarea within the clicked div
+  var eventDescription = $(this).siblings("textarea").val();
+
+  // Get the time from the text of the clicked div
+  var eventTime = $(this).parent().text();
+
+  // Create an object to store the event details
+  var event = {
+    description: eventDescription,
+    time: eventTime
+  };
+
+ // Convert the event object to a string
+ var eventString = JSON.stringify(event);
+
+ // Save the event string to localStorage
+ localStorage.setItem("event", eventString);
+});
 
 /*
 function whenStyle () {
@@ -54,3 +107,5 @@ function whenStyle () {
 
 }
 */
+
+
